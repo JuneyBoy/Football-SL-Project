@@ -1,4 +1,5 @@
 import numpy as np
+from ParseData import stats
 
 
 def euclidean_distance(p1, p2):
