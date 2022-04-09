@@ -25,7 +25,7 @@ def k_nearest_neighbors_real_value(k, point_to_classify, training_examples, weig
 
     # sorts dictionary by distances from least to greatest
     sorted_distances = dict(sorted(distances.items(), key=lambda item: item[1]))
-    print(sorted_distances)
+    # print(sorted_distances)
     # keeps track of the sum of the outputs for the k-nearest neighbors
     sum = 0
     # keeps track of the weights of the k-nearest neighbors
@@ -36,9 +36,9 @@ def k_nearest_neighbors_real_value(k, point_to_classify, training_examples, weig
         if weighted:
             wi = 1 / np.square(list(sorted_distances.values())[i])
             ws.append(wi)
-            sum += wi * list(sorted_distances)[i][1]
+            sum += wi * list(sorted_distances)[i][10]
         else:
-            sum += list(sorted_distances)[i][1]
+            sum += list(sorted_distances)[i][10]
 
     # returns averages
     if weighted:
@@ -47,20 +47,20 @@ def k_nearest_neighbors_real_value(k, point_to_classify, training_examples, weig
         return sum / k
 
 
-k_nearest_neighbors_real_value(
-    3, (validation_examples[0])[:-1], training_examples, True
-)
-
-# predicted_wins = [
-#     k_nearest_neighbors_real_value(3, team_data[:-1], training_examples, True)
-#     for team_data in validation_examples
-# ]
-
-# print(
-#     [
-#         validation_example[-1] - predicted_win
-#         for validation_example, predicted_win in zip(
-#             validation_examples, predicted_wins
-#         )
-#     ]
+# k_nearest_neighbors_real_value(
+#     3, (validation_examples[0])[:-1], training_examples, True
 # )
+
+predicted_wins = [
+    k_nearest_neighbors_real_value(3, team_data[:-1], training_examples, True)
+    for team_data in validation_examples
+]
+
+print(
+    [
+        validation_example[-1] - predicted_win
+        for validation_example, predicted_win in zip(
+            validation_examples, predicted_wins
+        )
+    ]
+)

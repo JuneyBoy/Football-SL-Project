@@ -104,4 +104,4 @@ parse_offensive_rushing(validation_examples, "Raw Data/2020_Data/OffensiveRushin
 get_wins(validation_examples, "Raw Data/2020_Data/2020_Standings.csv")
 
 # print(training_examples)
-print(validation_examples[0])
+# print(validation_examples[0])
