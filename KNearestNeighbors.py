@@ -1,5 +1,5 @@
 import numpy as np
-from ParseData import stats
+from ParseData import training_examples
 
 
 def euclidean_distance(p1, p2):
@@ -24,7 +24,7 @@ def k_nearest_neighbors_real_value(k, point_to_classify, training_examples, weig
 
     # sorts dictionary by distances from least to greatest
     sorted_distances = dict(sorted(distances.items(), key=lambda item: item[1]))
-    print(sorted_distances)
+    # print(sorted_distances)
     # keeps track of the sum of the outputs for the k-nearest neighbors
     sum = 0
     # keeps track of the weights of the k-nearest neighbors
